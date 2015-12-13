@@ -1,12 +1,16 @@
 package com.trueconf.videochat.test;
 
 import com.robotium.solo.*;
+
 import android.test.ActivityInstrumentationTestCase2;
 
 
 public class RunTest2 extends ActivityInstrumentationTestCase2 {
   	private Solo solo;
-  	
+
+  	// fasa  1.
+	// ******* подготовка теста к запуску ******************
+	//********* Начало ***********
   	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.trueconf.gui.activities.Login";
 
     private static Class<?> launcherActivityClass;
@@ -17,23 +21,26 @@ public class RunTest2 extends ActivityInstrumentationTestCase2 {
            throw new RuntimeException(e);
         }
     }
-  	
+
   	public RunTest2() throws ClassNotFoundException {
         super(launcherActivityClass);
     }
+	//********* End  ***********
 
+
+	// fasa 2.
+	// Подготовка главного объекта  Main class for development of Robotium tests.
   	public void setUp() throws Exception {
         super.setUp();
 		solo = new Solo(getInstrumentation());
 		getActivity();
   	}
-  
-   	@Override
-   	public void tearDown() throws Exception {
-        solo.finishOpenedActivities();
-        super.tearDown();
-  	}
-  
+	//********* End  ***********
+
+
+
+	// fasa 3
+	// Сам тест
 	public void testRun() {
         //Wait for activity: 'com.trueconf.gui.activities.Login'
 		solo.waitForActivity("Login", 2000);
@@ -42,7 +49,10 @@ public class RunTest2 extends ActivityInstrumentationTestCase2 {
         //Click on Sign up for TrueConf
 		solo.clickOnView(solo.getView("tv_registrate"));
         //Wait for activity: 'com.trueconf.gui.activities.Register'
+
+
 		assertTrue("Register is not found!", solo.waitForActivity("Register"));
+	   //	Spoon.screenshot(solo.getCurrentActivity(), "Screenshotname");
         //Click on person-reg-login
 		solo.clickOnWebElement(By.id("person-reg-login"));
         //Clear text in person-reg-login
@@ -62,7 +72,12 @@ public class RunTest2 extends ActivityInstrumentationTestCase2 {
 		solo.sleep(1000);
         //Press menu back key
 		solo.goBack();
-        //Click on Have an account? Log In
+
+		assertTrue("Back to activity Login", solo.waitForActivity("Login"));
+		solo.sleep(5000);
+
+
+		//Click on Have an account? Log In
 		solo.clickOnView(solo.getView("tv_is_have_account"));
         //Click on Empty Text View
 		solo.clickOnView(solo.getView("et_videochat_id"));
@@ -100,5 +115,26 @@ public class RunTest2 extends ActivityInstrumentationTestCase2 {
 		solo.clickOnText(java.util.regex.Pattern.quote("Logout"));
         //Wait for activity: 'com.trueconf.gui.activities.Login'
 		assertTrue("Login is not found!", solo.waitForActivity("Login"));
+	}
+   //********* End  ***********
+
+	public void testRunConnect() {
+		//Wait for activity: 'com.trueconf.gui.activities.Login'
+		solo.waitForActivity("Login", 3000);
+		//Set default small timeout to 11881 milliseconds
+		Timeout.setSmallTimeout(11881);
+		solo.sleep(2000);
+
+		solo.goBack();
+
+	}
+
+
+	// fasa 4
+	// конец теста тест
+	@Override
+	public void tearDown() throws Exception {
+		solo.finishOpenedActivities();
+		super.tearDown();
 	}
 }

@@ -1,13 +1,16 @@
 package com.trueconf.videochat.test;
 
 import com.robotium.solo.*;
+
+
+
 import android.test.ActivityInstrumentationTestCase2;
 
 
 @SuppressWarnings("rawtypes")
 public class NewTestLogout extends ActivityInstrumentationTestCase2 {
   	private Solo solo;
-  	
+
   	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.trueconf.gui.activities.Login";
 
     private static Class<?> launcherActivityClass;
@@ -18,7 +21,7 @@ public class NewTestLogout extends ActivityInstrumentationTestCase2 {
            throw new RuntimeException(e);
         }
     }
-  	
+
   	@SuppressWarnings("unchecked")
     public NewTestLogout() throws ClassNotFoundException {
         super(launcherActivityClass);
@@ -29,21 +32,22 @@ public class NewTestLogout extends ActivityInstrumentationTestCase2 {
 		solo = new Solo(getInstrumentation());
 		getActivity();
   	}
-  
+
    	@Override
    	public void tearDown() throws Exception {
         solo.finishOpenedActivities();
         super.tearDown();
   	}
-  
+
 	public void testRun() {
         //Wait for activity: 'com.trueconf.gui.activities.Login'
 		solo.waitForActivity("Login", 2000);
         //Click on Sign up for TrueConf
 		solo.clickOnView(solo.getView("tv_registrate"));
         //Wait for activity: 'com.trueconf.gui.activities.Register'
+	//	Spoon.screenshot(solo.getCurrentActivity(), "getCurrentActivity");
 		assertTrue("Register is not found!", solo.waitForActivity("Register"));
-        //Press menu back key
+//		//Press menu back key
 		solo.goBack();
         //Click on Have an account? Log In
 		solo.clickOnView(solo.getView("tv_is_have_account"));
