@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="2dp">
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="5.0dip"
+        android:imeOptions="actionNext"
+        android:hint="TrueConfId"
+        android:inputType="textNoSuggestions"
+        android:lines="1"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/et_name"
+        android:layout_marginBottom="5dp"
+        android:hint="Password"
+        android:inputType="textNoSuggestions|textPassword"
+         />
+
+    <LinearLayout
+        android:id="@+id/btn_login_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/et_password"
+        android:layout_marginBottom="5.0dip"
+        android:layout_marginLeft="3.0dip"
+        android:layout_marginRight="3.0dip"
+        android:layout_marginTop="5.0dip"
+        android:background="#4d4d4d"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginRight="15dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/im_btn_login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Login"
+            android:textColor="#ffffff"
+            android:textSize="20.0sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_login_form_password_recovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/btn_login_ll"
+        android:layout_gravity="right"
+        android:layout_marginTop="10.0dip"
+        android:clickable="true"
+        android:paddingLeft="10.0dip"
+        android:paddingRight="10.0dip"
+        android:text="recover_password"
+        android:textColor="#4a47d1"
+        android:textSize="18.0sp"
+        android:visibility="visible" />
+
+</RelativeLayout>
