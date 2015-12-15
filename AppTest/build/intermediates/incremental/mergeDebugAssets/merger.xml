@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/home/malex/Downloads/ExampleTestProject_AndroidStudio_v5.5.1/TestTrueCong_2/AppTest/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/malex/Downloads/ExampleTestProject_AndroidStudio_v5.5.1/TestTrueCong_2/AppTest/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/home/malex/IdeaProjects/TestTrueCong_2/AppTest/src/main/assets"/></dataSet><dataSet config="debug"><source path="/home/malex/IdeaProjects/TestTrueCong_2/AppTest/src/debug/assets"/></dataSet></merger>

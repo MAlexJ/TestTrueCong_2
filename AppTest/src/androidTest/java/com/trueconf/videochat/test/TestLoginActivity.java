@@ -92,37 +92,5 @@ public class TestLoginActivity extends ActivityInstrumentationTestCase2 {
         solo.goBack();
     }
 
-    //Test4
-    public void testLoginIn() {
-        //Wait for activity: 'com.trueconf.gui.activities.Login'
-        solo.waitForActivity("Login", 2000);
-        //Set default small timeout to 12000 milliseconds
-        Timeout.setSmallTimeout(12000);
-        //Click on Have an account Log in
-        solo.clickOnView(solo.getView("tv_is_have_account"));
-        solo.sleep(5000);
-        //Click on Empty Text View
-        solo.clickOnView(solo.getView("et_videochat_id"));
-        //Enter the text: 'kovalek'
-        solo.clearEditText((android.widget.EditText) solo.getView("et_videochat_id"));
-        solo.enterText((android.widget.EditText) solo.getView("et_videochat_id"), "kovalek");
-        //Enter the text: '2687484'
-        solo.clearEditText((android.widget.EditText) solo.getView("et_password"));
-        solo.enterText((android.widget.EditText) solo.getView("et_password"), "pop2233");
-        solo.pressSoftKeyboardNextButton();
-        //Click on Login
-        solo.clickOnView(solo.getView("btn_login_ll"));
-        //Wait for activity: 'com.trueconf.gui.activities.ContactTabs'
-        assertTrue("ContactTabs is not found!", solo.waitForActivity("ContactTabs"));
-        //Wait for dialog
-        solo.waitForDialogToOpen(5000);
-        //Wait for dialog to close
-        solo.waitForDialogToClose(5000);
-        //
-        solo.clickInList(1);
-        solo.sleep(2000);
-        assertTrue(solo.waitForText("Stetsiura Max"));
-        solo.sleep(2000);
-    }
 
 }
